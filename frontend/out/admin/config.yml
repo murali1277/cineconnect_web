@@ -3,12 +3,12 @@ backend:
   repo: murali1277/cineconnect_web
   branch: main
 
-media_folder: "frontend/public/images/articles"
-public_folder: "/images/articles"
+media_folder: "frontend/public/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "articles"
-    label: "Articles"
+    label: "Cinema Articles & News"
     folder: "frontend/content/articles"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -18,10 +18,58 @@ collections:
       - { label: "Header Subtitle", name: "header", widget: "string" }
       - { label: "Excerpt", name: "excerpt", widget: "text" }
       - { label: "Cover Image URL", name: "coverImage", widget: "string", required: false }
-      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Publish Date & Time", name: "date", widget: "string", default: "August 4, 2026 | 04:00 PM" }
       - { label: "Public Status", name: "public", widget: "boolean", default: true }
       - { label: "Sort Order", name: "sort", widget: "number", default: 1 }
       - { label: "Article Body", name: "body", widget: "markdown" }
+
+  - name: "reviews"
+    label: "Movie Reviews & Ratings"
+    folder: "frontend/content/reviews"
+    create: true
+    slug: "{{slug}}-review"
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Review Title", name: "title", widget: "string" }
+      - { label: "Movie Name", name: "movieTitle", widget: "string" }
+      - { label: "Star Rating (0.0 - 5.0)", name: "rating", widget: "number", value_type: "float", min: 0, max: 5, step: 0.5, default: 3.5 }
+      - { label: "Verdict Summary", name: "verdict", widget: "string" }
+      - { label: "Director", name: "director", widget: "string", required: false }
+      - { label: "Cast Members", name: "cast", widget: "string", required: false }
+      - { label: "Genre", name: "genre", widget: "string", required: false }
+      - { label: "Cover Image URL", name: "coverImage", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "string", default: "August 2026" }
+      - { label: "Public Status", name: "public", widget: "boolean", default: true }
+      - { label: "Sort Order", name: "sort", widget: "number", default: 1 }
+      - { label: "Review Body Text", name: "body", widget: "markdown" }
+
+  - name: "web_stories"
+    label: "Web Stories (Visual Cards)"
+    folder: "frontend/content/web-stories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Story Title", name: "title", widget: "string" }
+      - { label: "Cover Image URL", name: "coverImage", widget: "string" }
+      - { label: "Date", name: "date", widget: "string", default: "August 2026" }
+      - { label: "Public Status", name: "public", widget: "boolean", default: true }
+      - { label: "Sort Order", name: "sort", widget: "number", default: 1 }
+
+  - name: "epapers"
+    label: "Digital E-Papers"
+    folder: "frontend/content/epapers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Edition Title", name: "editionTitle", widget: "string" }
+      - { label: "Cover Image URL", name: "coverImage", widget: "string" }
+      - { label: "PDF Download URL", name: "pdfUrl", widget: "string" }
+      - { label: "Date", name: "date", widget: "string", default: "August 2026" }
+      - { label: "Public Status", name: "public", widget: "boolean", default: true }
+      - { label: "Sort Order", name: "sort", widget: "number", default: 1 }
 
   - name: "banners"
     label: "Banner Inventory"
