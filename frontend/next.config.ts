@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // Required for static hosting on Hostinger
   },
+  devIndicators: false, // Disables the Next.js development 'N' badge
 };
 
 export default nextConfig;
