@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: your-username/CineConnect_Corporate_Web
+  repo: murali1277/cineconnect_web
   branch: main
 
 media_folder: "frontend/public/images/articles"
