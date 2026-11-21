@@ -1,0 +1,3 @@
+import {FeaturePage} from "@/components/FeaturePage";
+export const metadata={title:"Learning Hub"};
+export default function Page(){return <FeaturePage eyebrow="CINE CONNECT / LEARNING HUB" title="Learn the craft. Shape the future." summary="From the basics of performance to the technology of filmmaking, growth starts with curiosity." features={[{title:"Film workshops",copy:"Explore possible workshops across production and performance."},{title:"Mentorship",copy:"Learn from professionals and share creative perspectives."},{title:"Masterclasses",copy:"Explore expertise across screenwriting, editing and cinematography."}]}/>}

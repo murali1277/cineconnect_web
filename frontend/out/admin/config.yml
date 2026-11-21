@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: your-username/CineConnect_Corporate_Web
+  branch: main
+
+media_folder: "frontend/public/images/articles"
+public_folder: "/images/articles"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "frontend/content/articles"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Header Subtitle", name: "header", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Cover Image URL", name: "coverImage", widget: "string", required: false }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Public Status", name: "public", widget: "boolean", default: true }
+      - { label: "Sort Order", name: "sort", widget: "number", default: 1 }
+      - { label: "Article Body", name: "body", widget: "markdown" }

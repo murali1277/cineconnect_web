@@ -1,0 +1,5 @@
+:HL["/_next/static/chunks/4554kw2bnmt38.css","style"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"id","t":"d","k":"ca001e26-61d3-43fa-96ea-92f6aedb71c2","s":[]},"h":96,"c":"$Q3"}]]
+1:[["children",{"s":"magazine","h":96,"c":"$Q2"}]]
+0:{"b":"Zr2T6FEn9hHOw89e0UQVN","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

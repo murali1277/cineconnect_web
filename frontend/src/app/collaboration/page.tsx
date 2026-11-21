@@ -1,0 +1,3 @@
+import {FeaturePage} from "@/components/FeaturePage";
+export const metadata={title:"Collaboration"};
+export default function Page(){return <FeaturePage eyebrow="CINE CONNECT / COLLABORATION" title="Cinema begins with connection." summary="Connect creative minds across performances, direction, writing, production and technical crafts." features={[{title:"Discover creatives",copy:"Find professionals with complementary skills and interests."},{title:"Build your team",copy:"Explore how the right collaborators bring stories to life."},{title:"Grow together",copy:"Build trusted working relationships across regional cinema industries."}]}/>}

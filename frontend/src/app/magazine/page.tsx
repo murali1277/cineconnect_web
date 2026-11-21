@@ -1,0 +1,5 @@
+import Link from "next/link";
+import {getMagazines,editorialImageUrl} from "@/lib/content";
+import {PageHero,DataLabel,EditorialCover,EmptyNotice} from "@/components/UI";
+export const metadata={title:"Magazine"};
+export default async function Magazine(){const res=await getMagazines();return <><PageHero eyebrow="CINE CONNECT MAGAZINE" title="Stories worth the spotlight." subtitle="Discover issues celebrating craftsmanship, creative people, technology and India's cinematic landscape."/><section className="section"><div className="container"><DataLabel live={res.live} error={res.error}/>{res.items.length?<div className="magazine-list">{res.items.map(x=><Link key={x.id} href={`/magazine/${encodeURIComponent(x.id)}`} className="magazine-item"><EditorialCover label={x.title} image={res.live?editorialImageUrl("magazines",x.id,"thumbnail"):null}/><strong>{x.title}</strong><span>Explore issue ↗</span></Link>)}</div>:<EmptyNotice message="No published magazine issues are available."/>}</div></section></>}

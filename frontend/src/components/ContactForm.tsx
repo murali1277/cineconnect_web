@@ -1,0 +1,7 @@
+"use client";
+import {FormEvent,useState} from "react";
+export function ContactForm(){const [status,setStatus]=useState("");function submit(e:FormEvent<HTMLFormElement>){e.preventDefault();const form=new FormData(e.currentTarget);const name=String(form.get("name")||"").trim();const email=String(form.get("email")||"").trim();const subject=String(form.get("subject")||"").trim();const message=String(form.get("message")||"").trim();if(!name||!email||!subject||!message){setStatus("Please complete every field.");return}const body=`Name: ${name}
+Email: ${email}
+
+${message}`;const url=`mailto:reachus@cineconnect.cc?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;setStatus("Your email application will open with a draft. You must press Send to deliver your message.");window.location.href=url;}
+return <form onSubmit={submit} className="contact-form"><h2>Send an enquiry</h2><p>This form prepares an email draft. It does not send or store messages automatically.</p><label>Your name<input name="name" autoComplete="name" required maxLength={100}/></label><label>Email address<input name="email" type="email" autoComplete="email" required maxLength={180}/></label><label>Subject<input name="subject" required maxLength={160}/></label><label>Message<textarea name="message" rows={5} maxLength={4000} required/></label><button type="submit" className="button button-primary">Prepare email ↗</button><p role="status" className="form-status">{status}</p></form>}

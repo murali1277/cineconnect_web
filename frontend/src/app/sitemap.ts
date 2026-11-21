@@ -1,0 +1,4 @@
+import type {MetadataRoute} from "next";
+import {getArticles,getMagazines} from "@/lib/content";
+export const dynamic = "force-static";
+export default async function sitemap():Promise<MetadataRoute.Sitemap>{const base=process.env.NEXT_PUBLIC_SITE_URL||"https://www.cineconnect.cc";const routes=["","/crafts","/articles","/magazine","/collaboration","/learning","/opportunities","/contact"];const [arts,mags]=await Promise.all([getArticles(),getMagazines()]);return [...routes.map(p=>({url:`${base}${p}`,changeFrequency:"weekly" as const,priority:p?0.7:1})),...(arts.live?arts.items.map(a=>({url:`${base}/articles/${encodeURIComponent(a.id)}`,changeFrequency:"monthly" as const,priority:0.7})):[]),...(mags.live?mags.items.map(m=>({url:`${base}/magazine/${encodeURIComponent(m.id)}`,changeFrequency:"monthly" as const,priority:0.6})):[])]}

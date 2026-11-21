@@ -1,0 +1,4 @@
+import {PageHero,Kicker} from "@/components/UI";
+import {ContactForm} from "@/components/ContactForm";
+export const metadata={title:"Contact"};
+export default function Contact(){return <><PageHero eyebrow="CINE CONNECT / CONTACT" title="Let's connect." subtitle="Ideas, collaborations and partnerships start with a conversation."/><section className="section"><div className="container contact-grid"><div><Kicker>REACH THE CINE CONNECT TEAM</Kicker><h2>Get in touch.</h2><a className="contact-big" href="mailto:reachus@cineconnect.cc">reachus@cineconnect.cc ↗</a><a className="contact-big" href="tel:+919912399456">+91 99123 99456 ↗</a><p>Hyderabad, Telangana, India</p><a className="text-link" href="https://www.google.com/maps?q=17.436528,78.441139" target="_blank" rel="noopener noreferrer">View on Google Maps ↗</a></div><ContactForm/></div></section></>}

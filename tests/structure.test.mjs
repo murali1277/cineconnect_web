@@ -1,0 +1,13 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {readFileSync,existsSync} from "node:fs";
+import {fileURLToPath} from "node:url";
+import {resolve,dirname} from "node:path";
+const here=dirname(fileURLToPath(import.meta.url));
+const root=resolve(here,"../frontend");
+const read=p=>readFileSync(resolve(root,p),"utf8");
+test("required corporate routes exist",()=>{for(const p of ["src/app/page.tsx","src/app/crafts/page.tsx","src/app/magazine/page.tsx","src/app/articles/page.tsx","src/app/collaboration/page.tsx","src/app/learning/page.tsx","src/app/opportunities/page.tsx","src/app/contact/page.tsx"])assert.ok(existsSync(resolve(root,p)),p)});
+test("content adapter is read only",()=>{const s=read("src/lib/content.ts");for(const method of ["POST","PATCH","DELETE","service_role","absolute_local_path"])assert.ok(!s.includes(method),method)});
+test("V4 editorial URLs remain disabled until configured",()=>{assert.match(read("src/lib/content.ts"),/PUBLIC_EDITORIAL_MEDIA_BASE_URL/);assert.match(read(".env.example"),/PUBLIC_EDITORIAL_MEDIA_BASE_URL=\n/)});
+test("no hardcoded private credentials or local media paths",()=>{for(const file of ["src/lib/content.ts","src/app/page.tsx",".env.example"]){const source=read(file);assert.ok(!source.includes("E:\\Media Server"));assert.ok(!source.includes("sb_secret_"));}});
+test("links use internal pages",()=>{const s=read("src/lib/navigation.ts");for(const path of ["/crafts","/magazine","/articles","/collaboration","/learning","/opportunities","/contact"])assert.ok(s.includes(path))});
