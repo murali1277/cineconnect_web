@@ -1,21 +1,16 @@
-"use client";
-
-import { useEffect } from "react";
+export const metadata = {
+  title: "Admin CMS | Cine Connect",
+  description: "Cine Connect Enterprise Content Management System",
+};
 
 export default function AdminPage() {
-  useEffect(() => {
-    // Dynamically load Decap CMS script
-    const script = document.createElement("script");
-    script.src = "https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
-
-  return <div id="nc-root" style={{ minHeight: "100vh", background: "#09050f" }} />;
+  return (
+    <div style={{ width: "100vw", height: "100vh", overflow: "hidden", background: "#09050f" }}>
+      <iframe
+        src="/admin/index.html"
+        style={{ width: "100%", height: "100%", border: "none" }}
+        title="Cine Connect Decap CMS Workspace"
+      />
+    </div>
+  );
 }
