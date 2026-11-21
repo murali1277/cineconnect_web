@@ -1,0 +1,30 @@
+[
+  {
+    "id": "p1",
+    "bannerId": "b1",
+    "area": "inline",
+    "position": 1,
+    "enabled": true
+  },
+  {
+    "id": "p2",
+    "bannerId": "b3",
+    "area": "inline",
+    "position": 2,
+    "enabled": true
+  },
+  {
+    "id": "p3",
+    "bannerId": "b2",
+    "area": "sidebar",
+    "position": 1,
+    "enabled": true
+  },
+  {
+    "id": "p4",
+    "bannerId": "b4",
+    "area": "sidebar",
+    "position": 2,
+    "enabled": true
+  }
+]

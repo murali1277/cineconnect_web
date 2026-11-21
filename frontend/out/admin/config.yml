@@ -22,3 +22,39 @@ collections:
       - { label: "Public Status", name: "public", widget: "boolean", default: true }
       - { label: "Sort Order", name: "sort", widget: "number", default: 1 }
       - { label: "Article Body", name: "body", widget: "markdown" }
+
+  - name: "banners"
+    label: "Banner Inventory"
+    files:
+      - file: "frontend/content/banners/banners.json"
+        label: "Banners List"
+        name: "banners_list"
+        fields:
+          - name: "banners"
+            label: "Banners"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Type", name: "type", widget: "select", options: ["promotion", "related", "adsense"] }
+              - { label: "Image URL", name: "image", widget: "string", required: false }
+              - { label: "Target URL", name: "url", widget: "string", required: false }
+              - { label: "Caption", name: "caption", widget: "string", required: false }
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
+
+  - name: "placements"
+    label: "Banner Placements"
+    files:
+      - file: "frontend/content/banners/placements.json"
+        label: "Placements List"
+        name: "placements_list"
+        fields:
+          - name: "placements"
+            label: "Placements"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Banner ID", name: "bannerId", widget: "string" }
+              - { label: "Area", name: "area", widget: "select", options: ["inline", "sidebar"] }
+              - { label: "Position", name: "position", widget: "number", default: 1 }
+              - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
